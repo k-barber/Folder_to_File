@@ -338,7 +338,7 @@ class Folder_Selection_Dialog(QDialog):
         zipped_files = []
         failed = []
         for line in text.split("\n"):
-            stripped = line.strip("file:///").strip("/")
+            stripped = line.removeprefix("file:///").removeprefix("/")
             if stripped:
                 zipped_file = self.create_cbc_file(stripped)
                 if zipped_file:
